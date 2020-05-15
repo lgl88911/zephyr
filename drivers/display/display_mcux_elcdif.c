@@ -230,14 +230,14 @@ static struct mcux_elcdif_config mcux_elcdif_config_1 = {
 	.irq_config_func = mcux_elcdif_config_func_1,
 #ifdef CONFIG_MCUX_ELCDIF_PANEL_RK043FN02H
 	.rgb_mode = {
-		.panelWidth = 480,
-		.panelHeight = 272,
-		.hsw = 41,
-		.hfp = 4,
-		.hbp = 8,
-		.vsw = 10,
-		.vfp = 4,
-		.vbp = 2,
+		.panelWidth = 800,
+		.panelHeight = 480,
+		.hsw = 1,
+		.hfp = 22,
+		.hbp = 46,
+		.vsw = 1,
+		.vfp = 22,
+		.vbp = 23,
 		.polarityFlags = kELCDIF_DataEnableActiveHigh |
 				 kELCDIF_VsyncActiveLow |
 				 kELCDIF_HsyncActiveLow |

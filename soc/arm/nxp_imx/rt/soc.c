@@ -68,7 +68,7 @@ const clock_enet_pll_config_t ethPllConfig = {
 
 #ifdef CONFIG_INIT_VIDEO_PLL
 const clock_video_pll_config_t videoPllConfig = {
-	.loopDivider = 31,
+	.loopDivider = 36,
 	.postDivider = 8,
 	.numerator = 0,
 	.denominator = 0,
@@ -175,7 +175,7 @@ static ALWAYS_INLINE void clock_init(void)
 
 #ifdef CONFIG_DISPLAY_MCUX_ELCDIF
 	CLOCK_SetMux(kCLOCK_LcdifPreMux, 2);
-	CLOCK_SetDiv(kCLOCK_LcdifPreDiv, 4);
+	CLOCK_SetDiv(kCLOCK_LcdifPreDiv, 1);
 	CLOCK_SetDiv(kCLOCK_LcdifDiv, 1);
 #endif
 
