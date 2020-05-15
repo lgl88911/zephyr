@@ -232,21 +232,21 @@ static struct mcux_elcdif_config mcux_elcdif_config_1 = {
 	.rgb_mode = {
 		.panelWidth = 800,
 		.panelHeight = 480,
-		.hsw = 1,
-		.hfp = 22,
-		.hbp = 46,
-		.vsw = 1,
-		.vfp = 22,
-		.vbp = 23,
+		.hsw = 48,
+		.hfp = 40,
+		.hbp = 88,
+		.vsw = 3,
+		.vfp = 13,
+		.vbp = 32,
 		.polarityFlags = kELCDIF_DataEnableActiveHigh |
 				 kELCDIF_VsyncActiveLow |
 				 kELCDIF_HsyncActiveLow |
 				 kELCDIF_DriveDataOnRisingClkEdge,
-		.pixelFormat = kELCDIF_PixelFormatRGB565,
-		.dataBus = kELCDIF_DataBus16Bit,
+		.pixelFormat = kELCDIF_PixelFormatRGB888,
+		.dataBus = kELCDIF_DataBus24Bit,
 	},
-	.pixel_format = PIXEL_FORMAT_BGR_565,
-	.bits_per_pixel = 16,
+	.pixel_format = PIXEL_FORMAT_RGB_888,
+	.bits_per_pixel = 24,
 #endif
 };
 

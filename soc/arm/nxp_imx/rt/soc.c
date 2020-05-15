@@ -175,7 +175,7 @@ static ALWAYS_INLINE void clock_init(void)
 
 #ifdef CONFIG_DISPLAY_MCUX_ELCDIF
 	CLOCK_SetMux(kCLOCK_LcdifPreMux, 2);
-	CLOCK_SetDiv(kCLOCK_LcdifPreDiv, 1);
+	CLOCK_SetDiv(kCLOCK_LcdifPreDiv, 4);
 	CLOCK_SetDiv(kCLOCK_LcdifDiv, 1);
 #endif
 
