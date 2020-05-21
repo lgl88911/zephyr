@@ -173,6 +173,16 @@ static void mcux_elcdif_isr(void *arg)
 	ELCDIF_ClearInterruptStatus(config->base, status);
 
 	k_sem_give(&data->sem);
+	if(0)
+	{
+		s64_t time;
+		u32_t time_ms;
+		static u32_t last_ms;
+		swiftHal_counterGetns(&time);
+		time_ms = time/1000000;
+		printk("disp %d\n", time_ms-last_ms);
+		last_ms = time_ms;
+	}
 }
 
 static int mcux_elcdif_init(struct device *dev)
