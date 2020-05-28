@@ -182,9 +182,9 @@ static ALWAYS_INLINE void clock_init(void)
 #ifdef CONFIG_DISPLAY_MCUX_ELCDIF
 	CLOCK_SetMux(kCLOCK_LcdifPreMux, 2);
 #if DT_LCD_RGB_INTERFACE_PANEL_FRAME_PER_SEC==60
-	CLOCK_SetDiv(kCLOCK_LcdifPreDiv, 1);
+	CLOCK_SetDiv(kCLOCK_LcdifPreDiv, 2);
 #elif DT_LCD_RGB_INTERFACE_PANEL_FRAME_PER_SEC==50
-	CLOCK_SetDiv(kCLOCK_LcdifPreDiv, 1);
+	CLOCK_SetDiv(kCLOCK_LcdifPreDiv, 2);
 #else
 	CLOCK_SetDiv(kCLOCK_LcdifPreDiv, 4);
 #endif

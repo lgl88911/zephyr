@@ -117,6 +117,14 @@
 
 &i2c1 {
 	status = "okay";
+
+	gt9157@14 {
+		compatible = "coodix,gt9157";
+		reg = <0x14>;
+		label = "GT9157";
+		int-gpios = <&gpio1 2 GPIO_ACTIVE_HIGH>;
+		reset-gpios = <&gpio1 3 GPIO_ACTIVE_HIGH>;
+	};
 };
 
 &i2c3 {

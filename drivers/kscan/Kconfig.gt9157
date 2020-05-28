@@ -1,0 +1,13 @@
+# Copyright (c) 2020 Frank
+# SPDX-License-Identifier: Apache-2.0
+
+menuconfig KSCAN_GT9157
+	bool "GT9157 capacitive touch panel driver"
+	depends on I2C && HAS_DTS_I2C
+	help
+	  Enable driver for the FT5336 capacitive touch panel controller.
+
+config KSCAN_GT9157_PERIOD
+	int "Sample period (ms)"
+	default 10
+	depends on KSCAN_GT9157
