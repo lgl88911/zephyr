@@ -168,8 +168,9 @@ static int GT9157_read(struct device *dev)
 		if(touch_number == 0){
 			for(i=0; i<pre_touch_number; i++){
 				LOG_INF("Release %u %u", pre_touch[i].x, pre_touch[i].y);
+				printk("Release %u %u\n", pre_touch[i].x, pre_touch[i].y);
 				if(data->callback != NULL){
-					data->callback(dev, pre_touch[i].x, pre_touch[i].y, false);
+					data->callback(dev, pre_touch[i].y, pre_touch[i].x, false);
 				}
 			}
 			pre_touch_number = 0;
@@ -206,8 +207,9 @@ static int GT9157_read(struct device *dev)
 
 			if(j>=pre_touch_number){
 				LOG_INF("Touch %u %u", cur_touch[i].x, cur_touch[i].y);
+				printk("Touch %u %u -- %x\n", cur_touch[i].x, cur_touch[i].y, data->callback);
 				if(data->callback != NULL){
-					data->callback(dev, cur_touch[i].x, cur_touch[i].y, true);
+					data->callback(dev, cur_touch[i].y, cur_touch[i].x, true);
 				}
 			}
 		}
@@ -222,8 +224,9 @@ static int GT9157_read(struct device *dev)
 
 			if(j>=touch_number){
 				LOG_INF("Release %u %u", cur_touch[i].x, cur_touch[i].y);
+				printk("Release %u %u\n", cur_touch[i].x, cur_touch[i].y);
 				if(data->callback != NULL){
-					data->callback(dev, pre_touch[i].x, pre_touch[i].y, false);
+					data->callback(dev, pre_touch[i].y, pre_touch[i].x, false);
 				}
 			}
 		}
