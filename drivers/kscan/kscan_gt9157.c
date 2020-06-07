@@ -260,9 +260,8 @@ static void GT9157_timer_handler(struct k_timer *timer)
 	struct GT9157_data *data =
 		CONTAINER_OF(timer, struct GT9157_data, timer);
 
-	//k_work_submit(&data->work);
-	//GT9157_read(data->dev);
-	k_fifo_alloc_put(&t_isr_fifo, data);
+	k_work_submit(&data->work);
+	//k_fifo_alloc_put(&t_isr_fifo, data);
 }
 
 static void GT9157_work_handler(struct k_work *work)
@@ -270,7 +269,7 @@ static void GT9157_work_handler(struct k_work *work)
 	struct GT9157_data *data =
 		CONTAINER_OF(work, struct GT9157_data, work);
 
-	//GT9157_read(data->dev);
+	GT9157_read(data->dev);
 }
 
 static int GT9157_configure(struct device *dev, kscan_callback_t callback)
