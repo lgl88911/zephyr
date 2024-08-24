@@ -91,7 +91,7 @@
 		};
 	};
 
-	
+
 
 	/*mm_micro UART1*/
 	pinmux_lpuart8: pinmux_lpuart8 {
@@ -182,7 +182,7 @@
 			nxp,speed = "100-mhz";
 		};
 	};
-	
+
 	/*mm_micro ADC3*/
 	pinmux_adc2_15: pinmux_adc2_15 {
 		group0 {
@@ -237,7 +237,7 @@
 			nxp,speed = "100-mhz";
 		};
 	};
-	
+
 	/*mm_micro ADC8*/
 	pinmux_adc2_2: pinmux_adc2_2 {
 		group0 {
@@ -292,7 +292,7 @@
 			nxp,speed = "100-mhz";
 		};
 	};
-	
+
 	/*mm_micro ADC13*/
 	pinmux_adc1_4: pinmux_adc1_4 {
 		group0 {
@@ -314,7 +314,7 @@
 			nxp,speed = "200-mhz";
 		};
 	};
-	
+
 
 	pinmux_flexpwm_ch1: pinmux_flexpwm_ch1 {
 		group0 {
@@ -584,7 +584,15 @@
 				<&iomuxc_gpio_b1_00_lcdif_data12>,
 				<&iomuxc_gpio_b1_01_lcdif_data13>,
 				<&iomuxc_gpio_b1_02_lcdif_data14>,
-				<&iomuxc_gpio_b1_03_lcdif_data15>;
+				<&iomuxc_gpio_b1_03_lcdif_data15>,
+				<&iomuxc_gpio_b1_04_lcdif_data16>,
+				<&iomuxc_gpio_b1_05_lcdif_data17>,
+				<&iomuxc_gpio_b1_06_lcdif_data18>,
+				<&iomuxc_gpio_b1_07_lcdif_data19>,
+				<&iomuxc_gpio_b1_08_lcdif_data20>,
+				<&iomuxc_gpio_b1_09_lcdif_data21>,
+				<&iomuxc_gpio_b1_10_lcdif_data22>,
+				<&iomuxc_gpio_b1_11_lcdif_data23>;
 			drive-strength = "r0-6";
 			input-schmitt-enable;
 			bias-pull-up;

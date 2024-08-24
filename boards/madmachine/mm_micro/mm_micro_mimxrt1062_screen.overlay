@@ -3,8 +3,6 @@
 / {
 	chosen {
 		zephyr,flash = &sdram0;
-		zephyr,console = &lpuart2;
-		zephyr,shell-uart = &lpuart2;
 		zephyr,display = &lcdif;
 	};
 
@@ -22,7 +20,7 @@
 &lcdif {
 	status = "okay";
 	width = <480>;
-	height = <272>;
+	height = <480>;
 	display-timings {
 		compatible = "zephyr,panel-timing";
 		hsync-len = <41>;
@@ -37,8 +35,8 @@
 		vsync-active = <0>;
 		clock-frequency = <9210240>;
 	};
-	pixel-format = <PANEL_PIXEL_FORMAT_BGR_565>;
-	data-bus-width = "16-bit";
+	pixel-format = <PANEL_PIXEL_FORMAT_ARGB_8888>;
+	data-bus-width = "24-bit";
 	pinctrl-0 = <&pinmux_lcdif>;
 	pinctrl-names = "default";
 	backlight-gpios = <&gpio2 31 GPIO_ACTIVE_HIGH>;
