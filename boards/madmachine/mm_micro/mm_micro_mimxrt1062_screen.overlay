@@ -2,7 +2,8 @@
 
 / {
 	chosen {
-		zephyr,flash = &sdram0;
+		/*zephyr,flash = &sdram0;*/
+		/delete-property/zephyr,flash;
 		zephyr,display = &lcdif;
 	};
 
@@ -12,6 +13,21 @@
 			lcd_panel_in: endpoint {
 				remote-endpoint = <&lcd_panel_out>;
 			};
+		};
+	};
+
+	fstab {
+		compatible = "zephyr,fstab";
+		lfs: lfs {
+			compatible = "zephyr,fstab,littlefs";
+			mount-point = "/lfs";
+			partition = <&storage_partition>;
+			automount;
+			read-size = <16>;
+			prog-size = <16>;
+			cache-size = <64>;
+			lookahead-size = <32>;
+			block-cycles = <512>;
 		};
 	};
 
@@ -56,5 +72,48 @@ touch_i2c: &lpi2c1 {
 		compatible = "focaltech,ft5336";
 		reg = <0x38>;
 		int-gpios = <&gpio1 11 GPIO_ACTIVE_LOW>;
+	};
+};
+
+&w25q128 {
+	partitions {
+		compatible = "fixed-partitions";
+		#address-cells = <1>;
+		#size-cells = <1>;
+
+		boot_partition: partition@0 {
+			label = "bootloader";
+			reg = <0x00000000 DT_SIZE_K(128)>;
+		};
+
+		info_partition: partition@20000 {
+			label = "pti";
+			reg = <0x00020000 DT_SIZE_K(32)>;
+		};
+
+		header_partition: partition@28000 {
+			label = "pth";
+			reg = <0x00028000 DT_SIZE_K(32)>;
+		};
+
+		table_partition: partition@30000 {
+			label = "pt";
+			reg = <0x00030000 DT_SIZE_K(300)>;
+		};
+
+		scrach_partition: partition@7B000 {
+			label = "scrach";
+			reg = <0x0007B000 DT_SIZE_K(20)>;
+		};
+
+		user_partition: partition@80000 {
+			label = "user";
+			reg = <0x00080000 DT_SIZE_K(7680)>;
+		};
+
+		storage_partition: partition@800000 {
+			label = "storage";
+			reg = <0x00800000 DT_SIZE_M(8)>;
+		};
 	};
 };

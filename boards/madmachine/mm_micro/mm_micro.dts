@@ -57,6 +57,7 @@
 
 &flexspi {
 	reg = <0x402a8000 0x4000>, <0x60000000 DT_SIZE_M(16)>;
+	status = "okay";
 	w25q128: w25q128@0 {
 		compatible = "nxp,imx-flexspi-nor";
 		size = <134217728>;
